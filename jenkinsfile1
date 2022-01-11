@@ -2,12 +2,12 @@ pipeline{
     agent any
     environment{
          def param=readJSON file 'myconfig.json'
-         msg = "$(param.env)"
+         msg = "${param.env}"
          }
     stages{
        stage('echo'){
            steps{
-              echo "$(msg)"
+              echo "${msg}"
           }
          }
         }
