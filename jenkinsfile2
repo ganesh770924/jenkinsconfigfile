@@ -1,0 +1,17 @@
+pipeline{
+    agent any
+    enviroment{
+       myenv=readProperties file: 'myfile.properties'
+       DeployTo= "${myenv.envname}"
+       }
+    stages{
+       stage('hello'){
+          steps{
+             echo "Deploy apllication to ${DeployTo}"
+          }
+       }
+    
+    
+    }
+    
+}
