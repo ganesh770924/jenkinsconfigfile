@@ -1,0 +1,14 @@
+pipeline{
+    agent any
+    environment{
+         def param=readJSON file 'myconfig.json'
+         msg = "$(param.Hello)"
+         }
+    stages{
+       stage('echo'){
+           steps{
+              echo "$(msg)"
+          }
+         }
+        }
+      }
